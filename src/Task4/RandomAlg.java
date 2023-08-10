@@ -5,7 +5,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class RandomAlg {
 
     private long a, c, m;
-
     private AtomicLong x;
 
     public RandomAlg() {

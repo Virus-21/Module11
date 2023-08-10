@@ -1,6 +1,4 @@
 package Task3;
-
-import javax.naming.InsufficientResourcesException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,14 +12,14 @@ public class Task3 {
             numbers.add(random.nextInt(50));
         }
         System.out.println("numbers = " + numbers);
-        List<String > res = numberSorter(numbers);
+        List<String> res = numberSorter(numbers);
         System.out.println(res);
-
     }
-    public static List<String> numberSorter(List<Integer> numbers){
+
+    public static List<String> numberSorter(List<Integer> numbers) {
         return numbers.stream()
                 .sorted()
-                .map(n->n + "")
+                .map(n -> n + "")
                 .collect(Collectors.toList());
     }
 }
