@@ -2,6 +2,7 @@ package Task5;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -17,17 +18,12 @@ public class Task5 {
         List<T> firstList = new ArrayList<>(first.toList());
         List<T> secondList = new ArrayList<>(second.toList());
         List<T> resultList = new ArrayList<>();
-        int resultLenght;
-        if (firstList.size() > secondList.size()) {
-            resultLenght = secondList.size();
-
-        } else {
-            resultLenght = firstList.size();
-        }
+        int resultLenght = Math.min(firstList.size(), secondList.size());
         for (int i = 0; i < resultLenght; i++) {
             resultList.add(firstList.get(i));
             resultList.add(secondList.get(i));
         }
+        Collections.shuffle(resultList);
         return resultList.stream();
     }
 }

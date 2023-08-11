@@ -13,8 +13,8 @@ public class Task2 {
     }
     public static List<String> listSorter(List<String> names){
         return names.stream()
-                .peek(n-> n.toUpperCase())
-                .sorted()
+                .sorted((n1, n2) -> n2.charAt(0) - n1.charAt(0))
+                .map(n->n.toUpperCase())
                 .collect(Collectors.toList());
     }
 }

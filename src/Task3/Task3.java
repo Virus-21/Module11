@@ -1,25 +1,28 @@
 package Task3;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Task3 {
     public static void main(String[] args) {
         Random random = new Random();
-        List<Integer> numbers = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            numbers.add(random.nextInt(50));
+        String[] str = {"1, 2, 0", "4, 5"};
+
+
+        List<String> res = numberSorter(str);
+        for (String result: res
+             ) {
+            System.out.println( result);
         }
-        System.out.println("numbers = " + numbers);
-        List<String> res = numberSorter(numbers);
-        System.out.println(res);
     }
 
-    public static List<String> numberSorter(List<Integer> numbers) {
-        return numbers.stream()
+    public static List<String> numberSorter(String[] str) {
+        return Collections.singletonList(Arrays.stream(str)
+                .flatMap(s -> s
+                        .chars()
+                        .mapToObj(i -> (char) i))
+                .filter(Character::isDigit)
                 .sorted()
-                .map(n -> n + "")
-                .collect(Collectors.toList());
+                .map(el -> "" + el)
+                .collect(Collectors.joining(", ")));
     }
 }

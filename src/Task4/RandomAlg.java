@@ -9,7 +9,7 @@ public class RandomAlg {
 
     public RandomAlg() {
         this.a = 25214903917l;
-        this.m = 2 ^ 48;
+        this.m = (long) Math.pow(48,2);
     }
 
     public RandomAlg withSeed(long c) {

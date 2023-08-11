@@ -6,18 +6,16 @@ import java.util.stream.IntStream;
 
 public class Task1 {
     public static void main(String[] args) {
-        List<String> names = new ArrayList<>();
-        for (int i = 1; i < 10; i++) {
-            names.add(i + ". " + "name" + i);
-        }
+        List<String> names = new ArrayList<>(Arrays.asList("Igor", "Myron", "Zahar", "Anastasia", "Myron", "Danya", "ivan", "Makar"));
         List<String> sortedNames = namesSorter(names);
-        System.out.println("sortedNames = " + sortedNames);
+        System.out.println(sortedNames);
     }
 
     public static List<String> namesSorter(List<String> names) {
-        return IntStream.range(0, names.size())
-                .filter(n -> n % 2 == 0)
+        return IntStream.range(1, names.size())
+                .filter(n -> n % 2 != 0)
                 .mapToObj(names::get)
+                .map(h -> names.indexOf(h) + ". " + h)
                 .collect(Collectors.toList());
     }
 
